@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <input type="number" id="temperatureInput" placeholder="Enter temperature" required>
+        <select id="unitSelect">
+            <option value="celsius">Celsius</option>
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="kelvin">Kelvin</option>
+        </select>
+        <button onclick="convertTemperature()">Convert</button>
+        <div id="result"></div>
+    </div>
+    <script>
+function convertTemperature() {
+    var temperature = parseFloat(document.getElementById("temperatureInput").value);
+    var unit = document.getElementById("unitSelect").value;
+    var resultElement = document.getElementById("result");
+    
+    if (isNaN(temperature)) {
+        resultElement.innerText = "Please enter a valid number for temperature.";
+        return;
+    }
+
+    var convertedTemperature;
+    if (unit === "celsius") {
+        var fahrenheit = (temperature * 9/5) + 32; // Celsius to Fahrenheit
+        var kelvin = temperature + 273.15; // Celsius to Kelvin
+        resultElement.innerText = temperature + " Celsius is " + fahrenheit.toFixed(2) + " Fahrenheit and " + kelvin.toFixed(2) + " Kelvin.";
+    } else if (unit === "fahrenheit") {
+        var celsius = (temperature - 32) * 5/9; // Fahrenheit to Celsius
+        var kelvin = celsius + 273.15; // Celsius to Kelvin
+        resultElement.innerText = temperature + " Fahrenheit is " + celsius.toFixed(2) + " Celsius and " + kelvin.toFixed(2) + " Kelvin.";
+    } else {
+        var celsius = temperature - 273.15; // Kelvin to Celsius
+        var fahrenheit = (celsius * 9/5) + 32; // Celsius to Fahrenheit
+        resultElement.innerText = temperature + " Kelvin is " + celsius.toFixed(2) + " Celsius and " + fahrenheit.toFixed(2) + " Fahrenheit.";
+    }
+}
+    </script>
+</body>
+</html>

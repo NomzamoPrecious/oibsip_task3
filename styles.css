@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(250, 229, 210);
+}
+h1 { font-size: xx-large;
+}
+.container {
+    max-width: 400px;
+    margin: 90px auto;
+    text-align: center;
+}
+
+input, select, button {
+    margin: 20px;
+    padding: 13px;
+    width: 100%;
+    font-size: large;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: larger;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 30px;
+    font-size: 25px;
+}
